@@ -18,7 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('dni');
             $table->string('lastName');
             $table->string('firstName');
-            $table->boolean('gender')->default(1);//1.Masculino - 2.Femenino
+            $table->enum('gender', ['male', 'female']);
             $table->date('dateBirth');
             $table->timestamps();
             $table->softDeletesTz();
