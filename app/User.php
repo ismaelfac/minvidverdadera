@@ -36,5 +36,36 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'state' => 'boolean'
     ];
+
+    protected $dates = ['deleted_at'];
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class);
+    }
+
+    public function isInactive()
+    {
+        return $this->state === false;
+    }
+
+    public function owns(Model $model)
+    {
+        return $this->id === $model->user_id;
+    }
+
+    public function scopeName($query, $name)
+    {
+        if (trim($name) != "") {
+            $query->where('name', 'LIKE', '%' . $name . '%');
+        }
+    }
+    public function scopeEmail($query, $email)
+    {
+        if (trim($email) != "") {
+            $query->where('email', 'LIKE', '%' . $email . '%');
+        }
+    }
 }

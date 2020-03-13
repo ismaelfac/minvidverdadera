@@ -8,9 +8,12 @@ use Faker\Generator as Faker;
 $factory->define(Employee::class, function (Faker $faker) {
     return [
         'dni' => randomNumber($nbDigits = NULL, $strict = false),
+        'gender' => $faker->randomElement(['male', 'female']),
+        'first_name' => function (array $employee) {
+            return $faker->firstName($employee['gender']);
+        },
         'lastName' => $faker->lastname,
-        'firstName' => $faker->firstName($gender = null|'male'|'female'),
-        'gender' => $faker->randomDigit,
+        'email' => $faker->unique()->safeEmail,
         'dateBirth' => $faker->date($format = 'Y-m-d', $max = 'now')
     ];
 });
