@@ -68,5 +68,4 @@ class User extends Authenticatable
             $query->where('email', 'LIKE', '%' . $email . '%');
         }
     }
-
 }

@@ -17,9 +17,10 @@ class CreateEmployeesTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('dni');
-            $table->string('lastName');
+            $table->enum('gender', ['male', 'female']);
             $table->string('firstName');
-            $table->boolean('gender')->default(1);//1.Masculino - 2.Femenino
+            $table->string('lastName');
+            $table->string('email')->unique();
             $table->date('dateBirth');
             $table->boolean('state')->default(false);
             $table->timestamps();
