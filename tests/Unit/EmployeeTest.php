@@ -2,8 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use App\{ User, Employee };
+use PHPUnit\Framework\TestCase;
+
 
 class EmployeeTest extends TestCase
 {
