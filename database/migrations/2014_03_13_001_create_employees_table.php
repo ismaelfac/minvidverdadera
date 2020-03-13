@@ -14,12 +14,14 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id();
             $table->string('dni');
             $table->string('lastName');
             $table->string('firstName');
             $table->boolean('gender')->default(1);//1.Masculino - 2.Femenino
             $table->date('dateBirth');
+            $table->boolean('state')->default(false);
             $table->timestamps();
             $table->softDeletesTz();
         });
