@@ -2,12 +2,16 @@
 
 namespace Tests\Unit;
 
-use App\{ User, Employee };
 use PHPUnit\Framework\TestCase;
+use App\{ User, Employee };
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 
 class EmployeeTest extends TestCase
 {
+    use RefreshDatabase;
     /** @test */
     public function view_employees_with_users_authenticated()
     {
