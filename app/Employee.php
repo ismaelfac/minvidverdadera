@@ -50,7 +50,4 @@ class Employee extends Model
             $query->where('email', 'LIKE', '%' . $email . '%');
         }
     }
-
-
-    
 }
