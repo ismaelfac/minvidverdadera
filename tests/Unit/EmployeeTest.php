@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\{ User, Employee };
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -15,7 +14,7 @@ class EmployeeTest extends TestCase
     /** @test */
     public function view_employees_with_users_authenticated()
     {
-        $employee = $this->createEmployee();
+        $employee = $this->createEmployee(30);
         $this->assertTrue(true);
     }
 
@@ -28,11 +27,13 @@ class EmployeeTest extends TestCase
 
     protected function createUser(Employee $employee)
     {
-        return factory(User::class)->employee_id($employee)->create();
+        return factory(App\User::class)->create([
+            'employee_id' -> $employee->id
+        ]);
     }
 
-    protected function createEmployee()
+    protected function createEmployee($num)
     {
-        return factory(Employee::class)->create();
+        return factory(App\Employee::class, $num)->create();
     }
 }
