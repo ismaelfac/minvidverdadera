@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Employee extends Model
+class Person extends Model
 {
     use SoftDeletes;
 
@@ -16,10 +16,11 @@ class Employee extends Model
      * @var array
      */
     protected $fillable = [
-        'dni'
+        'dni', 'lastName', 'firstName', 'gender', 'dateBirth', 'state'
     ];
 
     protected $casts = [
+        'state' => 'boolean',
     ];
 
     public function users()

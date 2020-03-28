@@ -3,10 +3,8 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
+use App\{Employee, User};
 
 class EmployeeTest extends TestCase
 {
@@ -27,13 +25,13 @@ class EmployeeTest extends TestCase
 
     protected function createUser(Employee $employee)
     {
-        return factory(App\User::class)->create([
+        return factory(User::class)->create([
             'employee_id' -> $employee->id
         ]);
     }
 
     protected function createEmployee($num)
     {
-        return factory(App\Employee::class, $num)->create();
+        return factory(Employee::class, $num)->create();
     }
 }

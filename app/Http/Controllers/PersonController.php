@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Employee;
+use App\Repositories\PersonRepository;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class PersonController extends Controller
 {
+    protected $personRepository;
+
+    public function __construct(PersonRepository $repository)
+    {
+        $this->personRepository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        return $this->personRepository->getFields('ISMAEL lastre');
     }
 
     /**
@@ -41,10 +47,10 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(Person $person)
     {
         //
     }
@@ -52,10 +58,10 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit(Person $person)
     {
         //
     }
@@ -64,10 +70,10 @@ class EmployeeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Employee  $employee
+     * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request, Person $person)
     {
         //
     }
@@ -75,10 +81,10 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Employee  $employee
+     * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(Person $person)
     {
         //
     }
