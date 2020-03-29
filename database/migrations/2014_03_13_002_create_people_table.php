@@ -22,7 +22,7 @@ class CreatePeopleTable extends Migration
             $table->string('lastName');
             $table->string('email')->unique();
             $table->date('dateBirth');
-            $table->boolean('state')->default(false);
+            $table->enum('status',['pending', 'activated', 'desactivated'])->default('');
             $table->timestamps();
             $table->softDeletesTz();
         });
