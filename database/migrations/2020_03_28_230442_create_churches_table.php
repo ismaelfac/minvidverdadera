@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateChurchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('churches', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('person_id');
-            $table->foreign('person_id')->references('id')->on('people');
+            $table->string('shortNameMinistry')->nullable();
+            $table->string('ministry');
+            $table->string('address');
+            $table->string('landline')->nullable();
+            $table->string('web')->nullable();
+            $table->string('email');
+            $table->string('shiftPastor')->nullable();
             $table->enum('status',['pending', 'activated', 'desactivated'])->default('desactivated');
-            $table->boolean('transplant')->default(false);
             $table->timestamps();
             $table->softDeletesTz();
         });
@@ -31,6 +35,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('churches');
     }
 }

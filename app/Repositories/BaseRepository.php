@@ -26,4 +26,9 @@ abstract class BaseRepository
     public function getFields($field){
         return ($field) ? ucwords(strtolower($field)) : throwException($field) ;
     }
+
+    public function activate(): int
+    {
+        return $this->getModel->where('status','pending' || 'status', 'desactivated')->update(['status' => 'activated']);
+    }
 }

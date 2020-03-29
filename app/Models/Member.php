@@ -14,11 +14,7 @@ class Member extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'state'
-    ];
+    protected $fillable = ['status'];
 
-    protected $casts = [
-        'state' => 'boolean',
-    ];
+    protected $casts = [];
 }

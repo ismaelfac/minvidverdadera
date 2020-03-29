@@ -14,7 +14,7 @@ class PersonRepository extends BaseRepository
     protected $dateBirth = '';
     protected $status = false;
 
-    public function __construct($dni, $firstName = null, $lastName = null, array $gender = null, $email = null, $dateBirth = null, $status)
+    public function __construct($dni = null, $firstName = null, $lastName = null, array $gender = null, $email = null, $dateBirth = null, $status = null)
     {
         $this->dni = $dni;
         $this->firstName = $firstName;
@@ -26,11 +26,11 @@ class PersonRepository extends BaseRepository
     }
 
     public function getFullName() {
-        return "{$this->getFields($this->lastName, $this->firstName)}";
+        return $this->getFields('Ismael Lastre');
     }
 
     public function index(){
-        return ;
+        return $this->getFullName();
     }
     public function create(){
         return;
@@ -51,10 +51,5 @@ class PersonRepository extends BaseRepository
     public function getModel()
     {
         return new Person;
-    }
-
-    public function activate(): int
-    {
-        return $this->getModel->where('status','pending')->update(['status' => 'activated']);
     }
 }

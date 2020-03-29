@@ -4,20 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLeadersTable extends Migration
+class CreateTransplantsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('leaders', function (Blueprint $table) {
+        Schema::create('transplants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('member_id');
             $table->foreign('member_id')->references('id')->on('members');
-            $table->enum('status',['pending', 'activated', 'desactivated'])->default('desactivated');
+            $table->unsignedBigInteger('church_id');
+            $table->foreign('church_id')->references('id')->on('churches');
+            $table->enum('status',['Desercion', 'Expulsion'])->default('Desercion');
             $table->timestamps();
             $table->softDeletesTz();
         });
@@ -30,6 +27,6 @@ class CreateLeadersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leaders');
+        Schema::dropIfExists('transplants');
     }
 }

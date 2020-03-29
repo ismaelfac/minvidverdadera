@@ -20,9 +20,13 @@ class CreatePeopleTable extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->string('firstName');
             $table->string('lastName');
+            $table->enum('bloodType',['O+','A+','B+','AB+']);
+            $table->string('address');
+            $table->string('landline')->nullable();
+            $table->string('phone');
             $table->string('email')->unique();
             $table->date('dateBirth');
-            $table->enum('status',['pending', 'activated', 'desactivated'])->default('');
+            $table->enum('status',['pending', 'activated', 'desactivated'])->default('pending');
             $table->timestamps();
             $table->softDeletesTz();
         });

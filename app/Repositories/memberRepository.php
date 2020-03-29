@@ -10,9 +10,9 @@ class MemberRepository extends PersonRepository implements Members
 {
     protected $church = '';
 
-    public function __construct($dni)
+    public function __construct($church)
     {
-        $this->setChurch($dni);
+        $this->church = $church;
     }
 
     private function setChurch(Member $member)
