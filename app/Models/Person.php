@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\User;
+use App\Models\{ Member, Leader };
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -16,16 +16,17 @@ class Person extends Model
      * @var array
      */
     protected $fillable = [
-        'dni', 'lastName', 'firstName', 'gender', 'dateBirth', 'state'
+        'dni', 'lastName', 'firstName', 'gender', 'bloodType', 'address', 'landline', 'phone', 'email', 'dateBirth', 'status'
     ];
 
-    protected $casts = [
-        'state' => 'boolean',
-    ];
+    protected $casts = [];
 
-    public function users()
-    {
-        return $this->hasMany(User::class);
+    public function member() {
+        return $this->hasOne(Member::class);
+    }
+
+    public function leader() {
+        return $this->hasOne(Leader::class);
     }
 
     public function isInactive()

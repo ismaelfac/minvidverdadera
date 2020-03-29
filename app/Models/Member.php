@@ -14,7 +14,9 @@ class Member extends Model
      *
      * @var array
      */
-    protected $fillable = ['status'];
+    protected $fillable = ['person_id','status','transplant'];
 
-    protected $casts = [];
+    protected $casts = [
+        'transplant' => false
+    ];
 }

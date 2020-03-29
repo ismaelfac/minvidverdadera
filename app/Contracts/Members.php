@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 interface Members
 {
-    private function setChurch($member);
+    private function setChurch();
 
 
 }
