@@ -20,7 +20,10 @@ class CreatePeopleTable extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->string('firstName');
             $table->string('lastName');
+            $table->string('slug');
             $table->enum('bloodType',['O+','A+','B+','AB+']);
+            $table->unsignedBigInteger('country_id');
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->string('address');
             $table->string('landline')->nullable();
             $table->string('phone');
