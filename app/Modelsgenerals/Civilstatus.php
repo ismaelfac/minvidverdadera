@@ -3,6 +3,7 @@
 namespace App\Modelsgenerals;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Person;
 
 class Civilstatus extends Model
 {
@@ -10,8 +11,8 @@ class Civilstatus extends Model
     protected $fillable = ['description'];
     public $timestamps = false;
 
-    public function members () 
+    public function People ()
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(Person::class);
     }
 }

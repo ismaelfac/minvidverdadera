@@ -10,7 +10,7 @@ class CreateIdentificationTable extends Migration
     public function up()
     {
         Schema::create('identifications', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('description');
             $table->string('short_name');
         });

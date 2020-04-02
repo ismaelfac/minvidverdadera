@@ -3,8 +3,7 @@
 namespace App\Modelsgenerals;
 
 use App\MethodsBase;
-use App\Modelsgenerals \{
-    Location, Neighborhood, Municipality
+use App\Modelsgenerals \{ Neighborhood, Municipality
 };
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;

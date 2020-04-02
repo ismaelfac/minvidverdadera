@@ -4,7 +4,7 @@ namespace App\Modelsgenerals;
 
 use App\MethodsBase;
 use App\Modelsgenerals \{
-    Departament, Municipality, Location
+    Departament, Location
 };
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
