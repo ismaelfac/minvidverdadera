@@ -7,7 +7,6 @@ use App\Models\Person;
 
 class Civilstatus extends Model
 {
-    //
     protected $fillable = ['description'];
     public $timestamps = false;
 

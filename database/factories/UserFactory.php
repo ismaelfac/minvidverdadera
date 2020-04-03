@@ -1,10 +1,10 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\{ User, Employee };
-use Faker\Generator as Faker;
+use App\User;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,6 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'employee_id' => function () {
-            return factory(Employee::class)->create()->id;
-        },
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),

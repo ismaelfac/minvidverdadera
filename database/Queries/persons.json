@@ -4,7 +4,7 @@
    "first_name": "ISMAEL E",
    "last_name": "LASTRE ALVAREZ",
    "slug" : "ismael-lastre-alvarez",
-   "type_dni": "1",
+   "blood_type": "O+",
    "phone": "3113258468",
    "landline": "3643804",
    "email": "ismaelfac@gmail.com",
@@ -17,14 +17,14 @@
    "latitude": "23",
    "longitude": "25",
    "birthdate": "1983/12/02",
-   "active": 1
+   "status": "activated"
   },
   {
    "id": "1140830970",
    "first_name": "VALERIA REMEDIOS",
    "last_name": "VASQUEZ CUESTAS",
    "slug" : "valeria-remedios-vasquez-cuestas",
-   "type_dni": "1",
+   "blood_type": "O+",
    "phone": "3113258468",
    "landline": "3643804",
    "email": "vvasquez668@gmail.com",
@@ -37,14 +37,14 @@
    "latitude": "23",
    "longitude": "25",
    "birthdate": "1990/02/02",
-   "active": 1
+   "status": "activated"
   },
   {
    "id": "45234567",
    "first_name": "NATALY REMEDIOS",
    "last_name": "PORLMAN CUESTAS",
    "slug" : "nataly-remedios-porlman-cuestas",
-   "type_dni": "1",
+   "blood_type": "O+",
    "phone": "3113258468",
    "landline": "3643804",
    "email": "vvasquez668@gmail.com",
@@ -57,14 +57,14 @@
    "latitude": "23",
    "longitude": "25",
    "birthdate": "1990/02/02",
-   "active": 1
+   "status": "pending"
   },
   {
    "id": "123546709",
    "first_name": "EDWIN DE JESUS",
    "last_name": "BERMEJO PAREJA",
    "slug" : "valeria-remedios-vasquez-cuestas",
-   "type_dni": "1",
+   "blood_type": "O+",
    "phone": "3113258468",
    "landline": "3643804",
    "email": "vvasquez668@gmail.com",
@@ -77,6 +77,6 @@
    "latitude": "23",
    "longitude": "25",
    "birthdate": "1990/02/02",
-   "active": 1
+   "status": "desactivated"
   }
 ]

@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePersonRequest;
-use App\Repositories\PersonRepository;
+use App\Credential;
 use Illuminate\Http\Request;
 
-class PersonController extends Controller
+class CredentialController extends Controller
 {
-    protected $personRepository;
-
-    public function __construct(PersonRepository $repository)
-    {
-        $this->personRepository = $repository;
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return $this->personRepository->index();
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        return $this->personRepository->create();
+        //
     }
 
     /**
@@ -36,18 +33,18 @@ class PersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePersonRequest $request)
+    public function store(Request $request)
     {
-        $this->personRepository->store($request);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Credential  $credential
      * @return \Illuminate\Http\Response
      */
-    public function show($person)
+    public function show(Credential $credential)
     {
         //
     }
@@ -55,10 +52,10 @@ class PersonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Credential  $credential
      * @return \Illuminate\Http\Response
      */
-    public function edit($person)
+    public function edit(Credential $credential)
     {
         //
     }
@@ -67,10 +64,10 @@ class PersonController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person  $person
+     * @param  \App\Credential  $credential
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $person)
+    public function update(Request $request, Credential $credential)
     {
         //
     }
@@ -78,10 +75,10 @@ class PersonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Person  $person
+     * @param  \App\Credential  $credential
      * @return \Illuminate\Http\Response
      */
-    public function destroy($person)
+    public function destroy(Credential $credential)
     {
         //
     }

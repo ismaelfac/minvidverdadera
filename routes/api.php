@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => ['cors']], function () {
+    Route::resource('countries', 'Parameters\CountryController');
+    Route::resource('departaments', 'Parameters\DepartamentController');
+    Route::resource('municipalities', 'Parameters\MunicipalityController');
+    Route::resource('locations', 'Parameters\LocationController');
+    Route::resource('neighborhood', 'Parameters\NeighborhoodController');
+    Route::resource('person', 'PersonController');
+});
+
+Route::resource('person','PersonController');

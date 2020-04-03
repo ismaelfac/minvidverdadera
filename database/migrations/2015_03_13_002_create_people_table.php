@@ -18,10 +18,10 @@ class CreatePeopleTable extends Migration
             $table->id();
             $table->string('dni')->unique();
             $table->enum('gender', ['male', 'female']);
-            $table->string('firstName');
-            $table->string('lastName');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('slug');
-            $table->enum('bloodType',['O+','A+','B+','AB+']);
+            $table->enum('blood_type',['O+','A+','B+','AB+']);
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries');
             $table->unsignedBigInteger('departament_id');
@@ -35,7 +35,8 @@ class CreatePeopleTable extends Migration
             $table->string('landline')->nullable();
             $table->string('phone');
             $table->string('email')->unique();
-            $table->date('dateBirth');
+            $table->string('facebook')->nullable();
+            $table->date('birthdate');
             $table->unsignedBigInteger('identification_id');
             $table->foreign('identification_id')->references('id')->on('identifications');
             $table->enum('status',['pending', 'activated', 'desactivated'])->default('pending');

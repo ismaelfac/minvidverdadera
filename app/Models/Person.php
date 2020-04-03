@@ -18,7 +18,7 @@ class Person extends Model
      */
     protected $table = 'people';
     protected $fillable = [
-        'dni', 'lastName', 'firstName', 'gender', 'slug', 'bloodType', 'country_id', 'departament_id', 'municipality_id','location_id', 'neighborhood_id', 'address', 'landline', 'phone', 'email', 'dateBirth', 'status'
+        'dni', 'last_name', 'first_name', 'gender', 'slug', 'blood_type', 'country_id', 'departament_id', 'municipality_id','location_id', 'neighborhood_id', 'address', 'landline', 'phone', 'email', 'facebook', 'dateBirth', 'status'
     ];
 
     protected $casts = [];
@@ -27,8 +27,8 @@ class Person extends Model
         return $this->hasOne(Member::class);
     }
 
-    public function leader() {
-        return $this->hasOne(Leader::class);
+    public function leaders() {
+        return $this->hasMany(Leader::class);
     }
 
     public function country() {

@@ -14,6 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        setlocale(LC_MONETARY, 'co_CO');
         if($this->app->environment('local')) {
             $this->app->register(TelescopeServiceProvider::class);
         }

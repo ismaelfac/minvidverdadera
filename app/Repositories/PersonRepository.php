@@ -3,14 +3,16 @@
 namespace App\Repositories;
 use App\Repositories\BaseRepository;
 use App\Models\Person;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonRepository extends BaseRepository
 {
     protected $dni = 0;
-    protected $firstName = '';
-    protected $lastName = '';
+    protected $first_name = '';
+    protected $last_name = '';
     protected $slug = '';
-    protected $bloodType = '';
+    protected $blood_type = '';
     protected $country_id = '';
     protected $departament_id = '';
     protected $municipality_id = '';
@@ -22,18 +24,37 @@ class PersonRepository extends BaseRepository
     protected $gender = [];
     protected $email = '';
     protected $identification_id = '';
-    protected $dateBirth = '';
-    protected $status = false;
+    protected $birthdate = '';
+    protected $status = [];
 
-    public function __construct($dni = null, $firstName = null, $lastName = null, array $gender = null, $email = null, $dateBirth = null, $status = null)
+    public function __construct(
+            $dni = null,
+            $gender = null,
+            $first_name = null,
+            $last_name = null,
+            $slug = null,
+            $blood_type = null,
+            $country_id = null,
+            $departament_id = null,
+            $municipality_id = null,
+            $location_id = null,
+            $neighborhood_id = null,
+            $address = null,
+            $landline = null,
+            $phone = null,
+            $email = null,
+            $birthdate = null,
+            $status = null
+            )
     {
         $this->dni = $dni;
-        $this->firstName = $firstName;
-        $this->lastname = $lastName;
+        $this->gender = $gender;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
         $this->slug = $this->setSlug();
         $this->gender = $gender;
         $this->email = $email;
-        $this->dateBirth = $dateBirth;
+        $this->birthdate = $birthdate;
         $this->status = $status;
     }
 
@@ -46,13 +67,23 @@ class PersonRepository extends BaseRepository
     }
 
     public function index(){
-        return $this->getFullName();
+        return Person::all();
     }
     public function create(){
-        return;
+
+        return [
+            'dni' => "string|required",
+            'gener' => ['male','female'],
+            'first_name' => 'string',
+            'last_name' => 'string'
+        ];
     }
-    public function store(){
-        return;
+    public function store($data){
+        $person = $data->request;
+        DB::transaction(function () use ($person){
+            $person  = Person::create([$person]);
+            return $person;
+        });
     }
     public function edit(){
         return;

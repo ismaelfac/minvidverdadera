@@ -12,6 +12,6 @@ class CivilstatusTableSeeder extends Seeder
             'description' => $value
             ]);
         }
-       
+
     }
 }
